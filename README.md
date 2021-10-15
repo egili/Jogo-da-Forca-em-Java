@@ -2,7 +2,7 @@
  
 Atividade feita na disciplina <strong>Técnicas de Programação II</strong> 
 no segundo semestre de 2021 
-<p>curso Desenvolvimento de Sistemas do COTUCA</p>
+<p>-> curso Desenvolvimento de Sistemas do COTUCA</p>
 <hr />
  <p>O programa desenvolvido contitui-se de 7 classes e classes de teste para 4 das classes criadas</p>
  <ul>
