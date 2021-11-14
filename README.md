@@ -41,10 +41,10 @@ E a executável: <li>Forca</li>
       </a><br>
     </td>
     <td align="center">
-      <a href="">
+      <a href="https://github.com/lcunha957">
         <img src="" width="100px;" alt="Lunara"/><br>
         <sub>
-          <b>Lunara</b>
+          <b>Lunara Cunha</b>
         </sub>
       </a><br>
     </td>
