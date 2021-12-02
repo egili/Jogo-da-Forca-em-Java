@@ -42,7 +42,7 @@ E a executável: <li>Forca</li>
     </td>
     <td align="center">
       <a href="https://github.com/lcunha957">
-        <img src="" width="100px;" alt="Lunara"/><br>
+        <img src="https://avatars.githubusercontent.com/u/88806865?v=4" width="100px;" alt="Lunara"/><br>
         <sub>
           <b>Lunara Cunha</b>
         </sub>
