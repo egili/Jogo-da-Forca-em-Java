@@ -68,9 +68,8 @@ public class ControladorDeLetrasJaDigitadas implements Cloneable
     {
         int ret = 17;
         ret = ret * 17 + new String(letrasJaDigitadas).hashCode() ;
-        if (ret < 0)
-            ret = - ret;
-        return  ret;
+        
+       return ret < 0 ? -ret : ret;
     }
 
     public ControladorDeLetrasJaDigitadas(ControladorDeLetrasJaDigitadas c) throws Exception // construtor de c�pia
