@@ -60,10 +60,7 @@ public class ControladorDeErros implements Cloneable { // interface usada para p
 		ret = ret * 13 + new Integer(this.qtdMax).hashCode();
 		ret = ret * 13 + new Integer(this.qtdErr).hashCode();
 		
-		if (ret < 0) // transforma o ret em positivo se for negativo
-			ret = -ret;
-
-		return ret;
+		return ret < 0 ? -ret : ret;
 	}
 
 	
