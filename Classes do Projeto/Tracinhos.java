@@ -18,7 +18,7 @@ public class Tracinhos implements Cloneable
     {
            if(posicao < 0 || posicao >= this.texto.length)
         	   
-               throw new Exception("posicao inv·lida");
+               throw new Exception("posicao inv√°lida");
            
            this.texto [posicao] = letra;
     }
@@ -68,18 +68,15 @@ public class Tracinhos implements Cloneable
     public int hashCode ()
     {
         int ret = 31;
-        ret = ret * 31 + new String(this.texto).hashCode(); // String È um vetor de caracteres
+        ret = ret * 31 + new String(this.texto).hashCode(); // String √© um vetor de caracteres
         
-        if(ret < 0)
-        	ret = -ret;
-        
-        return ret;
+       return ret < 0 ? -ret : ret;;
     }
 
-    public Tracinhos (Tracinhos t) throws Exception{ // construtor de cÛpia
+    public Tracinhos (Tracinhos t) throws Exception{ // construtor de c√≥pia
     
     	if(t == null)
-    		throw new Exception ("A inst‚ncia n„o pode estar nula");
+    		throw new Exception ("A inst√¢ncia n√£o pode estar nula");
     	
     	t.texto = this.texto;    		
     }
