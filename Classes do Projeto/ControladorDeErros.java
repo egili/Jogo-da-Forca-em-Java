@@ -4,7 +4,7 @@ public class ControladorDeErros implements Cloneable { // interface usada para p
 	private int qtdMax, qtdErr = 0;
 
 	public ControladorDeErros(int qtdMax) throws Exception {
-		
+
 		if (qtdMax < 0)
 			throw new Exception("quantidade invalida");
 
@@ -15,16 +15,16 @@ public class ControladorDeErros implements Cloneable { // interface usada para p
 
 		if (this.qtdErr == this.qtdMax)
 			throw new Exception("quantidade invalida");
-		else
-			this.qtdErr++;
+
+		this.qtdErr++;
 	}
 
 	public boolean isAtingidoMaximoDeErros() {
 
 		if (this.qtdErr == this.qtdMax)
 			return true;
-		else
-			return false;
+
+		return false;
 	}
 
 	@Override
@@ -54,30 +54,29 @@ public class ControladorDeErros implements Cloneable { // interface usada para p
 	}
 
 	@Override
-	public int hashCode() { 
-		
-		int ret = 31; 
-		ret = ret * 13 + new Integer(this.qtdMax).hashCode();
-		ret = ret * 13 + new Integer(this.qtdErr).hashCode();
-		
+	public int hashCode() {
+
+		int ret = 31;
+		ret = ret * 13 + Integer.valueOf(this.qtdMax).hashCode();
+		ret = ret * 13 + Integer.valueOf(this.qtdErr).hashCode();
+
 		return ret < 0 ? -ret : ret;
 	}
 
-	
-	// construtor de cópia
+	// construtor de copia
 	public ControladorDeErros(ControladorDeErros c) throws Exception {
-		
+
 		if (c == null)
 			throw new Exception("");
 
 		c.qtdMax = this.qtdMax;
 		c.qtdErr = this.qtdErr;
 	}
-/*
+
 	@Override
 	public Object clone() {
 
-		ControladorDeErros ret = this; // o lado esquerdo de uma atibuição deve ser uma variavel
+		ControladorDeErros ret = null;
 
 		try {
 
@@ -89,5 +88,5 @@ public class ControladorDeErros implements Cloneable { // interface usada para p
 		}
 
 		return ret;
-	}*/
+	}
 }

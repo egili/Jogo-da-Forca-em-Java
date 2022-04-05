@@ -30,13 +30,13 @@ public class Palavra implements Comparable<Palavra> {
         char[] ocorrencia = new char[50];
         int quantidadeDeOcorrencias = 0;
 
-		for(int x = 0; x<this.texto.length(); x++){
+		for(int x = 0; x < this.texto.length(); x++){
 			
             ocorrencia[x] = this.texto.charAt(x);
             
             if(ocorrencia[x] == (letra)) {
             	
-                qualALetra[quantidadeDeOcorrencias ] = x;
+                qualALetra[quantidadeDeOcorrencias] = x;
                 quantidadeDeOcorrencias ++;
             }
         }
