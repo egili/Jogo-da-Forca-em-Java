@@ -84,7 +84,7 @@ public class ControladorDeErros implements Cloneable { // interface usada para p
 
 		} catch (Exception erro) {
 
-			System.err.println("");
+			System.err.println("impossivel clonar");
 		}
 
 		return ret;

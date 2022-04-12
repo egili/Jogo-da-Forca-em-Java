@@ -1,11 +1,3 @@
-/BancoDePalavras.class
-/ControladorDeErros.class
-/ControladorDeLetrasJaDigitadas.class
-/Forca.class
-/Palavra.class
-/Teclado.class
-/TesteControladorDeErros.class
-/TesteControladorDeLetrasJaDigitadas.class
-/TestePalavra.class
-/TesteTracinhos.class
-/Tracinhos.class
+/ControladorDeLetrasJaDigitadasTest.class
+/PalavraTest.class
+/TracinhosTest.class

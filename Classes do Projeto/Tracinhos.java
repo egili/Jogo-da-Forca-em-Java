@@ -38,7 +38,7 @@ public class Tracinhos implements Cloneable {
 
 		for (int i = 0; i < this.texto.length; i++)
 			palavra += Character.toString(texto[i]) + " ";
-		
+
 		return palavra;
 	}
 
@@ -79,9 +79,12 @@ public class Tracinhos implements Cloneable {
 	public Object clone() {
 
 		Tracinhos t = null;
-		
-		try { t = new Tracinhos(t); } catch (Exception e) {}
-		
+
+		try {
+			t = new Tracinhos(t);
+		} catch (Exception e) {
+		}
+
 		return t;
 	}
 }
