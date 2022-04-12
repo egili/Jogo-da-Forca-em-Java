@@ -1,16 +1,20 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PalavraTest {
 
 	private Palavra palavra = null;
 
-	@Test
-	public void quantidade() throws Exception {
+	@BeforeEach
+	private void inicialize() throws Exception {
 		palavra = new Palavra("java");
-
+	}
+	
+	@Test
+	public void quantidade() {
 		int qtd = palavra.getQuantidade('a');
 
 		assertEquals(2, qtd);
@@ -22,9 +26,7 @@ public class PalavraTest {
 	}
 
 	@Test
-	public void tamanho() throws Exception {
-		palavra = new Palavra("java");
-
+	public void tamanho() {
 		int tamanho = palavra.getTamanho();
 
 		assertEquals(4, tamanho);
@@ -32,9 +34,7 @@ public class PalavraTest {
 
 	@Test
 	public void iezimaOcorrencia() throws Exception {
-		palavra = new Palavra("desenvolvimento");
-
-		int posicao = palavra.getPosicaoDaIezimaOcorrencia(0, 'e');
+		int posicao = palavra.getPosicaoDaIezimaOcorrencia(0, 'a');
 
 		assertEquals(posicao, 1);
 	}
