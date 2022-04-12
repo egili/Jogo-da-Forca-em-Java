@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class ControladorDeLetrasJaDigitadasTest {
 
-	public ControladorDeLetrasJaDigitadas controlador = null;
+	private ControladorDeLetrasJaDigitadas controlador = null;
 
 	@Test
 	public void registrandoUmaLetra() throws Exception {

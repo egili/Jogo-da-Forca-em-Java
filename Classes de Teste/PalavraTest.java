@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class PalavraTest {
 
-	Palavra palavra = null;
+	private Palavra palavra = null;
 
 	@Test
 	public void quantidade() throws Exception {

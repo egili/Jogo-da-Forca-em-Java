@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class TracinhosTest {
 
-	Tracinhos tracinhos = null;
+	private Tracinhos tracinhos = null;
 
 	@Test
 	public void reveleTest() throws Exception {

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class ControladorDeErrosTest {
 
-	ControladorDeErros controlador = null;
+	private ControladorDeErros controlador = null;
 
 	@Test
 	public void registrandoUmErroDeCinco() throws Exception {
