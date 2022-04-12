@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +21,20 @@ public class TracinhosTest {
 	}
 
 	@Test
+	public void reveleInvalidoTest() throws Exception {
+
+		tracinhos = new Tracinhos(5);
+		assertThrows(Exception.class, () -> tracinhos.revele(6, 'a'));
+	}
+
+	@Test
+	public void reveleComParametroNegativo() throws Exception {
+
+		tracinhos = new Tracinhos(5);
+		assertThrows(Exception.class, () -> tracinhos.revele(-1, 'a'));
+	}
+
+	@Test
 	public void copiando() throws Exception {
 
 		tracinhos = new Tracinhos(5);
@@ -27,5 +42,10 @@ public class TracinhosTest {
 		Tracinhos t = new Tracinhos(tracinhos);
 
 		assertEquals(tracinhos.equals(t), true);
+	}
+
+	@Test
+	public void construtorComParametroNegativo() {
+		assertThrows(Exception.class, () -> tracinhos = new Tracinhos(-1));
 	}
 }

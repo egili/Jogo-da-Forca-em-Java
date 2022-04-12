@@ -23,10 +23,8 @@ public class Tracinhos implements Cloneable {
 
 	public boolean isAindaComTracinhos() {
 		for (int i = 0; i < this.texto.length; i++) {
-			if (this.texto[i] == '_') {
-
+			if (this.texto[i] == '_') 
 				return true;
-			}
 		}
 		return false;
 	}

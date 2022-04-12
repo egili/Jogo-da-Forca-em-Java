@@ -41,7 +41,7 @@ public class Palavra implements Comparable<Palavra> {
             }
         }
         if(quantidadeDeOcorrencias  == 0)
-            throw new Exception ("NÃ£o foi encontrado a iezima posicao da letra fornecida!");
+            throw new Exception ("Não foi encontrado a iezima posicao da letra fornecida!");
         
         return qualALetra[i];
     }
