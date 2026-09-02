@@ -21,10 +21,7 @@ public class ControladorDeErros implements Cloneable { // interface usada para p
 
 	public boolean isAtingidoMaximoDeErros() {
 
-		if (this.qtdErr == this.qtdMax)
-			return true;
-
-		return false;
+		return this.qtdErr == this.qtdMax;
 	}
 
 	@Override
@@ -38,27 +35,19 @@ public class ControladorDeErros implements Cloneable { // interface usada para p
 
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (obj.getClass() != ControladorDeErros.class)
+		if (obj == null || obj.getClass() != ControladorDeErros.class)
 			return false;
 
-		ControladorDeErros controladorErros = (ControladorDeErros) obj;
+		ControladorDeErros other = (ControladorDeErros) obj;
 
-		if (this.qtdMax != controladorErros.qtdMax)
-			return false;
-		if (this.qtdErr != controladorErros.qtdErr)
-			return false;
-
-		return true;
+		return this.qtdMax == other.qtdMax && this.qtdErr == other.qtdErr;
 	}
 
 	@Override
 	public int hashCode() {
-
 		int ret = 31;
-		ret = ret * 13 + Integer.valueOf(this.qtdMax).hashCode();
-		ret = ret * 13 + Integer.valueOf(this.qtdErr).hashCode();
+		ret = ret * 13 + Integer.hashCode(this.qtdMax);
+		ret = ret * 13 + Integer.hashCode(this.qtdErr);
 
 		return ret < 0 ? -ret : ret;
 	}
@@ -67,26 +56,19 @@ public class ControladorDeErros implements Cloneable { // interface usada para p
 	public ControladorDeErros(ControladorDeErros c) throws Exception {
 
 		if (c == null)
-			throw new Exception("");
+			throw new Exception("Instância nula");
 
-		c.qtdMax = this.qtdMax;
-		c.qtdErr = this.qtdErr;
+		this.qtdMax = c.qtdMax;
+		this.qtdErr = c.qtdErr;
 	}
 
 	@Override
 	public Object clone() {
-
-		ControladorDeErros ret = null;
-
 		try {
-
-			ret = new ControladorDeErros(ret);
-
+			return new ControladorDeErros(this);
 		} catch (Exception erro) {
-
 			System.err.println("impossivel clonar");
+			return null;
 		}
-
-		return ret;
 	}
 }

@@ -6,68 +6,43 @@ public class ControladorDeLetrasJaDigitadas implements Cloneable {
 	}
 
 	public boolean isJaDigitada(char letra) {
-		int i = this.letrasJaDigitadas.indexOf(letra);
-
-		if (i == -1)
-
-			return false;
-
-		return true;
+		return this.letrasJaDigitadas.indexOf(letra) != -1;
 	}
 
 	public void registre(char letra) throws Exception {
 		if (isJaDigitada(letra))
 			throw new Exception("Letra ja digitada");
 
-		boolean num = false;
-		try {
-			double numero = Double.parseDouble(letra + "");
-			num = true;
-		} catch (NumberFormatException erro) {
-			num = false;
-		}
-		if (num) {
+		if (Character.isDigit(letra)) {
 			throw new Exception("não pode ser numero");
 		}
 
 		this.letrasJaDigitadas = this.letrasJaDigitadas + letra;
-
 	}
 
 	@Override
 	public String toString() {
-		String ret = "";
-		for (int letra = 0; letra < this.letrasJaDigitadas.length(); letra++) {
-			ret += letrasJaDigitadas.charAt(letra) + ",";
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < this.letrasJaDigitadas.length(); i++) {
+			sb.append(letrasJaDigitadas.charAt(i)).append(",");
 		}
-
-		return ret;
+		return sb.toString();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-
 		if (this == obj)
 			return true;
-
-		if (obj == null)
+		if (obj == null || obj.getClass() != ControladorDeLetrasJaDigitadas.class)
 			return false;
 
-		if (obj.getClass() != ControladorDeLetrasJaDigitadas.class)
-			return false;
-
-		if (this.letrasJaDigitadas != ((ControladorDeLetrasJaDigitadas) obj).letrasJaDigitadas)
-			return false;
-
-		return true;
+		ControladorDeLetrasJaDigitadas other = (ControladorDeLetrasJaDigitadas) obj;
+		return this.letrasJaDigitadas.equals(other.letrasJaDigitadas);
 	}
 
 	@Override
 	public int hashCode() {
-		int ret = 17;
-		ret = ret * 17 + new String(letrasJaDigitadas).hashCode();
-
-		return ret < 0 ? -ret : ret;
+		return letrasJaDigitadas != null ? letrasJaDigitadas.hashCode() : 0;
 	}
 
 	public ControladorDeLetrasJaDigitadas(ControladorDeLetrasJaDigitadas c) throws Exception {
@@ -76,14 +51,12 @@ public class ControladorDeLetrasJaDigitadas implements Cloneable {
 		this.letrasJaDigitadas = c.letrasJaDigitadas;
 	}
 
+	@Override
 	public Object clone() {
-		ControladorDeLetrasJaDigitadas ret = null;
 		try {
-			ret = new ControladorDeLetrasJaDigitadas(this);
+			return new ControladorDeLetrasJaDigitadas(this);
 		} catch (Exception ignored) {
-
+			return null;
 		}
-		return ret;
 	}
-
 }

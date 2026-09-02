@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Tracinhos implements Cloneable {
 	private char texto[];
 
@@ -9,13 +11,11 @@ public class Tracinhos implements Cloneable {
 		this.texto = new char[qtd];
 
 		for (int i = 0; i < this.texto.length; i++)
-
 			this.texto[i] = '_';
 	}
 
 	public void revele(int posicao, char letra) throws Exception {
 		if (posicao < 0 || posicao >= this.texto.length)
-
 			throw new Exception("posicao inválida");
 
 		this.texto[posicao] = letra;
@@ -23,7 +23,7 @@ public class Tracinhos implements Cloneable {
 
 	public boolean isAindaComTracinhos() {
 		for (int i = 0; i < this.texto.length; i++) {
-			if (this.texto[i] == '_') 
+			if (this.texto[i] == '_')
 				return true;
 		}
 		return false;
@@ -31,58 +31,42 @@ public class Tracinhos implements Cloneable {
 
 	@Override
 	public String toString() {
-
-		String palavra = "";
-
-		for (int i = 0; i < this.texto.length; i++)
-			palavra += Character.toString(texto[i]) + " ";
-
-		return palavra;
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < this.texto.length; i++) {
+			sb.append(texto[i]).append(" ");
+		}
+		return sb.toString();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (obj.getClass() != Tracinhos.class)
+		if (obj == null || obj.getClass() != Tracinhos.class)
 			return false;
 
 		Tracinhos tracinhos = (Tracinhos) obj;
-
-		if (this.texto != tracinhos.texto)
-			return false;
-
-		return true;
+		return Arrays.equals(this.texto, tracinhos.texto);
 	}
 
 	@Override
 	public int hashCode() {
-		int ret = 31;
-		ret = ret * 31 + new String(this.texto).hashCode(); // String é um vetor de caracteres
-
-		return ret < 0 ? -ret : ret;
+		return Arrays.hashCode(this.texto);
 	}
 
 	public Tracinhos(Tracinhos t) throws Exception { // construtor de cópia
-
 		if (t == null)
 			throw new Exception("A instância não pode estar nula");
 
-		t.texto = this.texto;
+		this.texto = t.texto.clone();
 	}
 
+	@Override
 	public Object clone() {
-
-		Tracinhos t = null;
-
 		try {
-			t = new Tracinhos(t);
+			return new Tracinhos(this);
 		} catch (Exception e) {
+			return null;
 		}
-
-		return t;
 	}
 }

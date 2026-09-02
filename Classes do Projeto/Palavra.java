@@ -10,87 +10,62 @@ public class Palavra implements Comparable<Palavra> {
 
         this.texto = texto;
     }
-    
+
     public int getQuantidade(char letra) {
-    	
+
         int quantidadeDeLetras = 0;
-        
+
         for(int i = 0; i < this.texto.length(); i++) {
-        	
-          if(this.texto.charAt(i)==(letra)) 
-        	  quantidadeDeLetras ++;  
+          if(this.texto.charAt(i)==(letra))
+            quantidadeDeLetras ++;
         }
-        
+
         return quantidadeDeLetras ;
       }
-    
+
     public int getPosicaoDaIezimaOcorrencia (int i, char letra) throws Exception
     {
-        int[] qualALetra = new int[10];
-        char[] ocorrencia = new char[50];
         int quantidadeDeOcorrencias = 0;
 
-		for(int x = 0; x < this.texto.length(); x++){
-			
-            ocorrencia[x] = this.texto.charAt(x);
-            
-            if(ocorrencia[x] == (letra)) {
-            	
-                qualALetra[quantidadeDeOcorrencias] = x;
+        for(int x = 0; x < this.texto.length(); x++){
+            if(this.texto.charAt(x) == letra) {
+                if(quantidadeDeOcorrencias == i) {
+                    return x;
+                }
                 quantidadeDeOcorrencias ++;
             }
         }
-        if(quantidadeDeOcorrencias  == 0)
-            throw new Exception ("N�o foi encontrado a iezima posicao da letra fornecida!");
-        
-        return qualALetra[i];
+        throw new Exception ("Não foi encontrada a " + (i + 1) + "ª posição da letra fornecida!");
     }
-    
+
     public int getTamanho() {
-    	
         return this.texto.length();
     }
 
     @Override
     public String toString() {
-    	
         return this.texto;
     }
 
     @Override
     public boolean equals(Object obj) {
-    	
-        if (this == obj) 
+        if (this == obj)
             return true;
 
-        if (obj == null) 
+        if (obj == null || !(obj instanceof Palavra) || obj.getClass() != Palavra.class)
             return false;
 
-        if (!(obj instanceof Palavra)) 
-            return false;
-        
-        if (obj.getClass() != Palavra.class) 
-            return false;
-        
-        if (this.texto != ((Palavra) obj).texto) 
-            return false;
-        
-        return true;
+        Palavra outra = (Palavra) obj;
+        return this.texto.equals(outra.texto);
        }
 
     @Override
     public int hashCode() {
-    	
-        int ret = 31;
-        
-        ret = ret * 13 + new String(this.texto).hashCode();
-
-        return ret < 0 ? -ret : ret;     
-    } 
+        return this.texto != null ? this.texto.hashCode() : 0;
+    }
 
     @Override
     public int compareTo(Palavra palavra) {
-    	
         return this.texto.compareTo(palavra.texto);
     }
 }
