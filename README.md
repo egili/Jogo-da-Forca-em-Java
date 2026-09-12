@@ -32,20 +32,5 @@ E a executável: <li>Forca</li>
         </sub>
       </a>
     </td>
-    <td align="center">
-      <a href="https://github.com/LeandroFreitass">
-        <img src="https://avatars.githubusercontent.com/u/48139768?v=4" width="100px;" alt="LeandroFreitass"/><br>
-        <sub>
-          <b>Leandro Hugo</b>
-        </sub>
-      </a><br>
-    </td>
-    <td align="center">
-      <a href="https://github.com/lcunha957">
-        <img src="https://avatars.githubusercontent.com/u/88806865?v=4" width="100px;" alt="Lunara"/><br>
-        <sub>
-          <b>Lunara Cunha</b>
-        </sub>
-      </a><br>
-    </td>
+    
    </table>
